@@ -1,0 +1,70 @@
+#login-container {
+    width: 430px;
+    margin: auto;
+    margin-top: 80px;
+    height: 500px;
+}
+
+#login-header {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+#login-form {
+    width: 280px;
+    margin: auto;
+}
+
+#login-username {
+    margin-bottom: 4px;
+}
+
+#fpwd {
+    margin-top: 4px;
+    text-decoration: none;
+    color: #0868b4;
+}
+
+#fpwd:hover {
+    text-decoration: underline;
+}
+
+#login-button {
+    width: 50%;
+    margin-top: 10px;
+    color: white;
+    background-color: #1f88df;
+}
+
+#login-button:hover{
+    background-color: #0868b4;
+}
+
+
+#login-signup-div {
+    margin-top: 30px;
+}
+
+#login-signup {
+    text-decoration: none;
+    color: #0868b4;
+}
+
+#login-signup:hover {
+    text-decoration: underline;
+}
+
+.form-control::placeholder {
+    font-style: italic;
+}
+
+#error-message {
+    font-size: small;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#success-message {
+    font-size: small;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}

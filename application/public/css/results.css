@@ -1,0 +1,76 @@
+#imgcontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5em;
+    margin-left: 3.8%;
+    margin-right: 3.8%;
+}
+@media only screen and (max-width: 550px) {
+    #imgcontainer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        grid-auto-columns: 1fr;
+        gap: 0.5em;
+    }
+}
+
+#results-div {
+    margin-left: 3%;
+}
+
+#result-message {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#select-sort {
+    width: 170px;
+    height: 35px;
+    font-size: 14px;
+    margin-right: 3.5%;
+    margin-bottom: 6px;
+}
+
+@media (max-width: 1000px) {
+    #select-sort{
+       margin-right: 20px;
+    }
+}
+
+.card-image {
+    object-fit: cover;
+    height: 250px;
+}
+
+#card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+#card-price {
+    font-size: 16px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#card-details {
+    text-decoration: none;
+    color: black;
+}
+
+#card-details:hover {
+    text-decoration: underline;
+}
+
+#results-card {
+    margin-top: 10px;
+}
+
+#contact-button-results {
+	margin: 10px;
+	color: white;
+	background-color: #1f88df;
+}
+
+#contact-button-results:hover {
+	background-color: #0868b4;
+}

@@ -1,0 +1,52 @@
+{{!-- Login page --}}
+<div id="login-container" class="card">
+
+    <form id="login-form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
+
+        <h1 id="login-header" class="text-center">Welcome Back!</h1>
+        {{!-- Users can only create a post, send a message, view "My Page" only if they are logged in.
+        If the user is not logged in, an error message will show up. --}}
+        {{#if errorMessage}}
+        <div id="error-message" class="text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{errorMessage}}
+                <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {{/if}}
+        {{!-- This success message only shows when the user successfully registers an account and it will
+        direct user back to the login page. --}}
+        {{#if successMessage}}
+        <div id="success-message" class="text-center">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{successMessage}}
+                <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- User is required to input username and password before they can submit to sign in. --}}
+        <label class="float-left">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+        <label class="float-left">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+        {{!-- There is no forgot password functionality. It is not required but professor mentioned we should have it
+        there. --}}
+        <div class="d-flex flex-row-reverse">
+            <a id="fpwd" href="">Forgot password?</a>
+        </div>
+
+        <div class="d-flex flex-row-reverse">
+            <button id="login-button" type="submit" class="btn">Sign In</button>
+        </div>
+
+        <div id="login-signup-div" class="text-center">
+            <label>New to Gator BnS? <a id="login-signup" href="/register">Sign Up</a></label>
+        </div>
+
+    </form>
+</div>

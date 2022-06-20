@@ -1,0 +1,27 @@
+{{!-- Search bar is shown in the home.hbs and results.hbs page --}}
+<div class="input-group mb-3" id="search">
+    {{!-- User can select a category within the dropdown menu to narrow down their search by category name. --}}
+    <select name="dropDownInfo" id="search-category" class="form-select">
+        <option value="">All</option>
+        <option value="Books" {{#if_equal categoryValue "Books"}} selected {{/if_equal}}>Books</option>
+        <option value="Clothing" {{#if_equal categoryValue "Clothing"}} selected {{/if_equal}}>Clothing</option>
+        <option value="Electronics & Media" {{#if_equal categoryValue "Electronics & Media"}} selected {{/if_equal}}>Electronics & Media</option>
+        <option value="Health & Beauty" {{#if_equal categoryValue "Health & Beauty"}} selected {{/if_equal}}>Health & Beauty</option>
+        <option value="Home" {{#if_equal categoryValue "Home"}} selected {{/if_equal}}>Home</option>
+        <option value="Supplies" {{#if_equal categoryValue "Supplies"}} selected {{/if_equal}}>Supplies</option>
+    </select>
+    {{!-- User can input a search term for their search. The onkeypress is to allow users to only input alphanumeric and space characters. --}}
+    <input type="text" id="search-text" name="searchTerm" maxlength="40" class="form-control" placeholder="Enter search keyword.." aria-label="Search"
+        aria-describedby="basic-addon2" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode > 64 && event.charCode < 91) 
+        || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)' value="{{inputValue}}"></input>
+    <div class="input-group-append">
+        {{!-- When the user clicks the search button, the onClick() function is within frontend.js to execute the search. --}}
+        <button id="search-button" class="btn btn-outline-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 
+                                1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+        </button>
+    </div>
+</div>

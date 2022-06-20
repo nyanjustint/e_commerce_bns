@@ -1,0 +1,59 @@
+#register-container {
+    width: 470px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+#register-header {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    margin-top: 40px;
+}
+
+#register-form {
+    width: 310px; 
+    margin: auto;
+}
+
+#register-username {
+    margin-bottom: 4px;
+}
+
+#register-password {
+    margin-bottom: 4px;
+}
+
+#confirm-password {
+    margin-bottom: 4px;
+}
+
+#register-button {
+    width: 50%;
+    margin-top: 20px;
+    color: white;
+    background-color: #1f88df;
+}
+
+#register-button:hover{
+    background-color: #0868b4;
+
+}
+
+#register-signup-div {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#register-signup {
+    text-decoration: none;
+    color: #0868b4;
+}
+
+#register-signup:hover {
+    text-decoration: underline;
+}
+
+.red-star {
+    color: rgb(220, 7, 7);
+}

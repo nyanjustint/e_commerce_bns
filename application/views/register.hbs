@@ -1,0 +1,41 @@
+{{!-- User registration page --}}
+<div id="register-container" class="card">
+    <form id="register-form" name="register" method="POST" action="/users/register"
+        enctype="application/x-www-form-urlencoded">
+
+        <h1 id="register-header" class="text-center">Create Account</h1>
+        {{!-- If registration fails, it will show up a error message. --}}
+        {{#if errorMessage}}
+        <div id="error-message" class="text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{errorMessage}}
+                <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- User is required to input a username, password, re-enter password, email before they can submit to sign up. --}}
+        <label class="float-left">Username</label><label class="red-star">*</label>
+        <input type="text" class="form-control" id="register-username" name="username" {{#if user}}value={{user}}{{/if}} placeholder="johndoe" required>
+        <label class="float-left">Email</label><label class="red-star">*</label>
+        <input type="email" class="form-control" id="register-email" name="email" {{#if email}}value={{email}}{{/if}} placeholder="johndoe@mail.sfsu.edu"
+            required>
+        <label class="float-left">Password</label><label class="red-star">*</label>
+        <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter password"
+            required>
+        <label class="float-left">Confirm Password</label><label class="red-star">*</label>
+        <input type="password" class="form-control" id="confirm-password" name="cpassword"
+            placeholder="Re-enter password" required>
+
+        <div class="d-flex justify-content-center">
+            <button id="register-button" type="submit" class="btn">Sign Up</button>
+        </div>
+
+        <div id="register-signup-div" class="text-center">
+            <label>Have an account already? <a id="register-signup" href="/login">Sign In</a></label>
+        </div>
+
+    </form>
+</div>

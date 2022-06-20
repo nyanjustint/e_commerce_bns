@@ -1,0 +1,63 @@
+#createpost-container {
+    width: 530px;
+    margin: auto;
+    margin-top: 50px;
+    min-height: 600px;
+    max-width: 98%;
+}
+
+#createpost-header {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+#createpost-form {
+    width: 360px;
+    margin: auto;
+}
+
+#createpost-submit {
+    width: 40%;
+    margin-top: 10px;
+    color: white;
+    background-color: #1f88df;
+    margin-left: 4%;
+}
+
+#createpost-submit:hover{
+    background-color: #0868b4;
+}
+
+#createpost-cancel {
+    width: 40%;
+    margin-top: 10px;
+    color: white;
+    margin-left: 8%;
+}
+
+#createpost-cancel:hover{
+    background-color: #494b4d;
+}
+
+@media (max-width: 800px) {
+    #createpost-header{
+       margin-top: 60px;
+    }
+}
+
+@media (max-width: 800px) {
+    #createpost-buttons{
+       margin-bottom: 60px;
+    }
+}
+
+#description {
+    height: 140px;
+    resize: none;
+}
+
+#createpost-message {
+    margin-top: 4px;
+    font-weight: 70;
+}

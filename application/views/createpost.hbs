@@ -1,0 +1,106 @@
+{{!-- Create a Post page --}}
+<div id="createpost-container" class="card">
+	<form id="createpost-form" method="POST" enctype="multipart/form-data" action='/posts/createpost'>
+		<h1 id="createpost-header" class="text-center">Create a Post</h1>
+
+		{{!-- Displays error message when validation fails. --}}
+        {{#if errorMessage}}
+        <div id="error-message" class="text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{errorMessage}}
+                <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {{/if}}
+
+		{{!-- Displays success message when post is made. --}}
+        {{#if successMessage}}
+        <div id="success-message" class="text-center">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{successMessage}}
+                <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {{/if}}
+
+		{{!-- User is required to input a title name for their post --}}
+		<div class="row">
+			<div class="col-sm">
+				<label class="red-star">*</label><label for="createpost-title"> Title : </label>
+			</div>
+			<div class="col-sm-8">
+				<input id="createpost-title" name="title" type="text" maxlength="70" {{#if post}}value={{post}}{{/if}} class="form-control"
+					placeholder="Title (e.g. Art supplies)" required>
+			</div>
+		</div>
+
+		{{!-- User is required to select a category that is related to the item they want to sell --}}
+		<div class="row" style="margin-top:10px"> 
+			<div class="col-sm">
+				<label class="red-star">*</label><label for="createpost-category">Category :</label>
+			</div>
+			<div class="col-sm-8">
+				<select id="createpost-category" name="category" class="form-select" required>
+					<option value="">Select a category</option>
+					<option value="Books">Books</option>
+					<option value="Clothing">Clothing</option>
+					<option value="Electronics & Media">Electronics & Media</option>
+					<option value="Health & Beauty">Health & Beauty</option>
+					<option value="Home">Home</option>
+					<option value="Supplies">Supplies</option>
+				</select>
+			</div>
+		</div>
+
+		{{!-- User is required to input a price (whole digit) for their post --}}
+		<div class="row" style="margin-top:10px">
+			<div class="col-sm">
+				<label class="red-star">*</label><label> Price : </label>
+			</div>
+			<div class="col-sm-8">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">$</span>
+					</div>
+					<input id="createpost-price" name="price" min="0" type="number" {{#if price}}value={{price}}{{/if}} class="form-control" required>
+					<div class="input-group-append">
+						<span class="input-group-text">.00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{!-- User is required to input a description about their post --}}
+		<div class="row" style="margin-top:10px">
+			<div class="col-sm">
+				<label class="red-star">*</label><label>Description :</label>
+			</div>
+			<div class="col-sm-8">
+				<textarea class="form-control" type="text" id="description" {{#if description}}value={{description}}{{/if}} name="description"
+					placeholder="Describe about your product here..." required></textarea>
+			</div>
+		</div>
+
+		{{!-- User is required to submit an image of the item they are selling --}}
+		<div class="row" style="margin-top:10px">
+			<div class="col-sm">
+				<label class="red-star">*</label><label>Image :</label>
+			</div>
+			<div class="col-sm-8">
+				<input type="file" id="file" name="image" required />
+			</div>
+		</div>
+
+		{{!-- A little note to tell the user that it will take up to 24 hours for an admin to approve the post. --}}
+		<div id="createpost-message" class="text-center"> May take up to 24 hours to be approved.</div>
+
+		<div id="createpost-buttons" class="row" style="margin-top:5px">
+			<button id="createpost-cancel" class="btn btn-secondary">Cancel</button>
+			<button id="createpost-submit" class="btn" type="submit">Create Post</button>
+		</div>
+	</form>
+</div>

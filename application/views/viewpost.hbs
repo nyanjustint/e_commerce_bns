@@ -1,0 +1,84 @@
+{{!-- viewpost.hbs renders the page for a specific post that the user is viewing.
+The user can see the post name, image, description, price, when it was posted and the seller's username.
+The user can also click contact seller to send a message to the seller. --}}
+
+<div class="container">
+
+    {{#if (emptyObject messages)}}
+    <div id="success-message" class="d-flex justify-content-center">
+        {{#if messages.success}}
+        {{!-- When user successfully sends a message to seller, it will show up a green alert message. --}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{messages.success}}
+            <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{else}}
+        {{!-- When user tries to send a message to themself (their own post), it will show up a red alert
+        message.--}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{messages.error}}
+            <button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+    </div>
+    {{/if}}
+
+    <div class="row">
+
+        <div class="col">
+            {{!-- Image of the item --}}
+            <div class="card" id="viewpost-card">
+                <img src="/{{post.photopath}}" id="viewpost-image">
+            </div>
+        </div>
+
+        <div class="col">
+            {{!-- Post details --}}
+            <h3 id="viewpost-title">{{post.title}}</h3>
+            <div id="line"></div>
+            <div class="margin-info" style="font-size:18px">Price: ${{post.price}}</div>
+            <div class="margin-info" style="font-size:18px">Posted by {{post.username}} on {{post.created}}</div>
+            <div class="margin-info" style="font-size:18px">{{post.description}}</div>
+
+            {{!-- Contact Seller Button --}}
+            <button type="button" id="contact-button" class="btn" data-toggle="modal"
+                data-target="#contact-{{post.id}}">
+                Contact Seller
+            </button>
+
+            {{!-- Clicking Contact Seller button will pop up a screen for the user to type and send a message to the
+            seller. --}}
+            <div class="modal fade" id="contact-{{post.id}}">
+                <form id="createmessage-form" class="modal-dialog modal-dialog-centered" method="POST"
+                    enctype="application/x-www-form-urlencoded" action='/messages/createMessage'>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Contact {{post.username}}<br></h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>Item name: {{post.title}}</h6>
+                            <h6>Item Price: ${{post.price}}</h6>
+                            <input name="postId" type="hidden" value="{{post.id}}" class="form-control">
+                            <input name="userId" type="hidden" value="{{post.fk_userId}}" class="form-control">
+                            <textarea class="form-control" type="text" id="message-text" name="message"
+                                placeholder="Type message here for the seller. Please include your contact information."
+                                required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="submit-message" class="btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

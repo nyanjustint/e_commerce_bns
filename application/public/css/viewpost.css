@@ -1,0 +1,69 @@
+#viewpost-image {
+    object-fit: contain;
+    height: 550px;
+    max-width: 700px;
+}
+
+#viewpost-card {
+    margin-top: 30px;
+    height: 550px;
+    width: 700px;
+}
+
+@media (max-width: 500px) {
+    #viewpost-image{
+        max-height: 460px;
+    }
+}
+
+@media (max-width: 500px) {
+    #viewpost-card{
+       width: 460px;
+       height: auto;
+    }
+}
+
+#viewpost-title {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+#message-text {
+    height: 150px;
+    resize: none;
+}
+
+#submit-message {
+	color: white;
+	background-color: #1f88df;
+}
+
+#submit-message:hover {
+	background-color: #0868b4;
+}
+
+#contact-button {
+    color: white;
+	background-color: #1f88df;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+#contact-button:hover {
+	background-color: #0868b4;
+}
+
+.margin-info {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+#message-title {
+    border: none;
+    text-decoration: none;
+    background-color: white;
+}

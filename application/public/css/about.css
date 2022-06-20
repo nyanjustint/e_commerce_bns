@@ -1,0 +1,29 @@
+.nav-tabs .nav-link.active {
+    border-bottom: 4px solid #258de3;
+    color: #0868b4;
+}
+
+.nav-tabs .nav-link {
+    color:#696969;
+    background-color: #fff;
+    border: 3px;
+    margin-top: 7px;
+
+}
+
+.nav-tabs .nav-link:hover {
+    color:#0868b4;
+}
+
+#about-header {
+    margin-top: 15px;
+    font-weight: 800;
+}
+
+#about-card {
+    min-height: 550px;
+}
+
+
+
+

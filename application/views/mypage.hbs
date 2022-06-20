@@ -1,0 +1,38 @@
+{{!-- User's My Page --}}
+<h3 class="mb-3 text-center" id="mypage-header"> My Page </h3>
+
+<div id="mypage-card" class="card container mt-2">
+	{{!-- Navigation tabs for My Page which includes the Posts, Inbox, Sent, Settings tab. --}}
+	<ul class="nav nav-tabs nav-justified">
+		<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#mypage-Posts">Posts</a></li>
+		<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#mypage-Inbox">Inbox</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="mypage-Posts">
+			{{#if (emptyObject messages)}}
+			<div id="success-message" style="margin-top:10px" class="d-flex justify-content-center">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					{{messages.success}}
+					<button type="button" class="close btn-lg" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+			{{/if}}
+			{{!-- Retrieve all the active posts the user has up live on the site. --}}
+			<div id="posts">
+				{{#each results}}
+				{{> cardpost this}}
+				{{/each}}
+			</div>
+		</div>
+		<div class="tab-pane" id="mypage-Inbox">
+			{{!-- Retrieve all the messages the user has received from other user(s). --}}
+			<div>
+				{{#each inboxResults}}
+				{{> cardinbox this}}
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

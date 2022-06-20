@@ -1,0 +1,54 @@
+#mypage-header {
+	margin-top: 15px;
+	font-weight: 800;
+}
+
+#mypage-card {
+	height: 550px;
+	padding-bottom: 20px;
+	overflow: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#mypage-card::-webkit-scrollbar {
+	width: 8px;
+}
+
+#mypage-card::-webkit-scrollbar-track {
+	background: lightgrey;
+}
+
+#mypage-card::-webkit-scrollbar-thumb {
+	background-color: #1f88df;
+	border-radius: 8px;
+}
+
+#posts {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+	margin-top: 5px;
+}
+
+@media only screen and (max-width: 550px) {
+	#posts {
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		grid-auto-columns: 1fr;
+	}
+}
+
+#delete-button {
+	margin: 10px;
+	color: white;
+	background-color: #1f88df;
+}
+
+#delete-button:hover {
+	background-color: #0868b4;
+}
+
+#post-card {
+	margin: 5px;
+	margin-top: 15px;
+}

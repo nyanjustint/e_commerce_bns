@@ -1,0 +1,61 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-228878177-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-228878177-1');
+</script>
+
+{{!-- The banner at the top of the page. --}}
+<nav id="demo" class="navbar navbar-expand-lg navbar-light">
+    <a class="nav-item container text-center" id="demo-text">SFSU Software Engineering Project CSC 648-848, Section 3 - Team 7, Spring 2022.
+        For Demonstration Only</a>
+</nav>
+<div id="line"></div>
+
+{{!-- Navbar shown across all pages. --}}
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/" id="brand">Gator BnS</a>
+    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="me-auto">
+        </div>
+        <div class="navbar-nav" id="nav3">
+            <a class="nav-item nav-link" id="nav-about" href="/about">About</a>
+            <a class="nav-item nav-link" id="nav-post" href="/createpost">Create a Post</a>
+            <a class="nav-item nav-link" id="nav-page" href="/mypage">My Page</a>
+        </div>
+        <div class="me-auto">
+        </div>
+        <div class="navbar-nav" id="nav2">
+            {{#if logged}}
+            <a class="nav-item nav-link" id="logout-button" href="/">Sign Out</a>
+            <script>
+                let ele = document.getElementById('logout-button');
+                if(ele){
+                    ele.onclick = (even) => {
+                        fetch('/users/logout', {
+                            method:"POST"
+                        })
+                        .then((data) => {
+                            location.replace('/login');
+                        })
+                    }
+                }
+            </script>
+            {{else}}
+            <a class="nav-item nav-link" href="/register">Register</a>
+            <a class="nav-item nav-link" href="/login">Sign In</a>
+            {{/if}}
+        </div>
+    </div>
+</nav>
+
+{{!-- Search bar from searchbar.hbs--}}
+{{> searchbar}}
